@@ -63,7 +63,6 @@ if [ "$1" = 'mysqld' -a -z "$wantHelp" -a "$(id -u)" = '0' ]; then
 	_check_config "$@"
 	DATADIR="$(_datadir "$@")"
 	mkdir -p "$DATADIR"
-	chown -R mysql:mysql "$DATADIR"
 	exec gosu mysql "$BASH_SOURCE" "$@"
 fi
 
